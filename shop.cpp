@@ -70,7 +70,7 @@ void def5(vector<Good>& goods,Good good){
 
 void def6(vector<Good>& goods,Good good){ //def6
     for(int i = 0; i < goods.size(); i++){
-        cout << goods[i].name;
+        cout << goods[i].name<<" ";
         }
 }
 
