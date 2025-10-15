@@ -40,10 +40,10 @@ void def1(vector<Good>& goods) {
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Помилка! Треба ввести ціле число: ";
+            cout << "Помилка! Треба ввести ціле число"<<endl;
         }
         else if (temp.amount < 0) {
-            cout << "Помилка! Кількість повинна бути додатньою: ";
+            cout << "Помилка! Кількість повинна бути додатньою"<<endl;
         }
         else {
             break;
@@ -56,10 +56,10 @@ void def1(vector<Good>& goods) {
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Помилка! Треба ввести число: ";
+            cout << "Помилка! Треба ввести число"<<endl;
         }
         else if (temp.price < 0) {
-            cout << "Помилка! Ціна повинна бути додатньою: ";
+            cout << "Помилка! Ціна повинна бути додатньою"<<endl;
         }
         else {
             break;
@@ -234,19 +234,34 @@ void def5(vector<Good>& goods) {
         cout << "В реєстрі поки немає товарів" << endl;
         return;
     }
+
     double most_expensive = 0;
-    string most_expensive_name;
     for(int i = 0; i < goods.size(); i++) {
         if (goods[i].price > most_expensive) {
             most_expensive = goods[i].price;
-            most_expensive_name = goods[i].name;
         }
     }
+
     if (most_expensive == 0) {
         cout << "Всі товари безкоштовні" << endl;
     }
     else {
-        cout << "Найдорожчий товар: " << most_expensive_name << ", ціна: " << most_expensive << endl;
+        vector<string> most_expensive_goods;
+        for(int i = 0; i < goods.size(); i++) {
+            if (goods[i].price == most_expensive) {
+                most_expensive_goods.push_back(goods[i].name);
+            }
+        }
+
+        if (most_expensive_goods.size() == 1) {
+            cout << "Найдорожчий товар: " << most_expensive_goods[0] << ", ціна: " << most_expensive << endl;
+        }
+        else {
+            cout << "Найдорожчі товари (ціна: " << most_expensive << "):" << endl;
+            for(int i = 0; i < most_expensive_goods.size(); i++) {
+                cout << most_expensive_goods[i] << endl;
+            }
+        }
     }
 }
 
@@ -350,10 +365,10 @@ void def10(vector<Good>& goods) {
                 if (cin.fail()) {
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Помилка! Треба ввести число: ";
+                    cout << "Помилка! Треба ввести число"<<endl;
                 }
                 else if (goods[i].price < 0) {
-                    cout << "Помилка! Ціна повинна бути додатньою: ";
+                    cout << "Помилка! Ціна повинна бути додатньою"<<endl;
                 }
                 else {
                     break;
