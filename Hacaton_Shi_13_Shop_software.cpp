@@ -33,10 +33,11 @@ void def1(vector<Good>& goods) {
             }
         }
     } while (break_indicator);
-
+    double amount;
     while (true) {
         cout << "Введіть кількість товару: ";
-        cin >> temp.amount;
+        cin >> amount;
+        temp.amount = (int)amount;
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
