@@ -323,12 +323,12 @@ void def8(vector<Good>& goods){
 }
 
 void def9(vector<Good>& goods) {
-    vector<string> goods_names_cheaper_than_100;
+    vector<Good> goods_names_cheaper_than_100;
     int goods_cheaper_than_100 = 0;
     for (int i = 0; i < goods.size(); i++) {
         if (goods[i].price < 100) {
             goods_cheaper_than_100++;
-            goods_names_cheaper_than_100.push_back(goods[i].name);
+            goods_names_cheaper_than_100.push_back(goods[i]);
         }
     }
     if (goods_cheaper_than_100 == 0) {
@@ -337,8 +337,8 @@ void def9(vector<Good>& goods) {
     else{
         cout << "Товарів дешевших за 100: " << goods_cheaper_than_100 << endl;
         cout << "Товари дешевші за 100:" << endl;
-        for (const string& n : goods_names_cheaper_than_100) {
-            cout << n << endl;
+        for (Good n : goods_names_cheaper_than_100) {
+            cout << "Назва: " <<n.name << " ,ціна: "<< n.price <<endl;
         }
     }
 }
